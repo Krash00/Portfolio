@@ -1,3 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mission Control - Project Dump</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    body {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Animated starfield background */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(180deg); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .static-card {
+      /* Remove floating animation for project cards */
+    }
+    
+    .carousel {
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .carousel-item {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      width: 100%;
+    }
+    
+    .project-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-button {
+      background: linear-gradient(145deg, #00d4ff, #0099cc);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+    }
+    
+    .title-glow {
+      color: white;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2);
+    }
+    
+    .project-title {
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    
+    /* Scrollbar styling */
+    .carousel::-webkit-scrollbar {
+... (126 lines left)
+Collapse
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mission Control - Project Dump</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+    
+    body {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Animated starfield background */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(180deg); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .static-card {
+      /* Remove floating animation for project cards */
+    }
+    
+    .carousel {
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .carousel-item {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      width: 100%;
+    }
+    
+    .project-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-button {
+      background: linear-gradient(145deg, #00d4ff, #0099cc);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+    }
+    
+    .title-glow {
+      color: white;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2);
+    }
+    
+    .project-title {
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    
+    /* Scrollbar styling */
+    .carousel::-webkit-scrollbar {
+... (140 lines left)
+Collapse
+
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,8 +326,8 @@
   
   <div class="relative z-10">
     <div class="text-center mb-8">
-      <h1 class="text-7xl font-black title-glow mb-2">🚀 MISSION CONTROL</h1>
-      <p class="text-xl text-blue-300 font-light">Aerospace Project Database</p>
+      <h1 class="text-7xl font-black title-glow mb-2">MISSION CONTROL</h1>
+      <p class="text-xl text-blue-300 font-light">Project Database</p>
       <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mt-4 rounded-full"></div>
     </div>
     
@@ -147,41 +355,85 @@
 
     const projects = [
       {
-        title: "🛰️ Project Nexus",
-        description: "Advanced AI system for orbital data extraction and analysis. Utilizes machine learning algorithms to process satellite telemetry and mission-critical information.",
+        title: "🛸 Guidance, Navigation, and Control",
+        description: "A collection of work and results performed as a Subteam Lead and a Strutures/Recovery team member. Includes static test stand testings, launches, publications, and a plethora of lifelong memories.",
         media: [
-          { type: "image", src: "https://via.placeholder.com/800x400/0c0c1e/00d4ff?text=🛰️+SATELLITE+DATA+INTERFACE" },
-          { type: "video", src: "https://www.w3schools.com/html/mov_bbb.mp4" },
-          { type: "pdf", src: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" }
+          { type: "youtube", src: "https://www.youtube.com/embed/Itph60smcrI?si=8NlG_ikwjtzvEFO3" },
+          { type: "youtube", src: "https://www.youtube.com/embed/ULS0sYtVHOI?si=mjFCth5fywlTvLd7" },
+          { type: "video", src: "https://Krash00.github.io/Portfolio/media/ScarletLaunch2.mp4" },
+          { type: "pdf", src: "https://krash00.github.io/Portfolio/media/Scarlet_AIAApaper.pdf" },
+          { type: "pdf", src: "https://Krash00.github.io/Portfolio/media/GruVector_AIAApaper.pdf" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/ScarletCAD.png" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/JerryCAD.png" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/ScarletOnPad.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/ScarletOnPad2.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/TestStand.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/ScarletPrepPic.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/GruVectorGroupPic.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/AIAABeachPic.jpg" }
         ]
       },
       {
-        title: "🌌 Stellar Dashboard",
-        description: "Mission command center for real-time spacecraft monitoring. Displays trajectory calculations, fuel consumption, and communication status with ground control.",
+        title: "🚀 High Powered Rocketry",
+        description: "Successfully built from scratch, launched, and safely recovered a High Powered Rocket. Achieved National Association of Rocketry L1 High Power Certification. Apogee: 1 Kilometer.",
         media: [
-          { type: "image", src: "https://via.placeholder.com/800x400/1a1a2e/00d4ff?text=🌌+MISSION+CONTROL+HUD" },
-          { type: "image", src: "https://via.placeholder.com/800x400/16213e/0099cc?text=📊+TELEMETRY+DISPLAY" }
+          { type: "video", src: "https://Krash00.github.io/Portfolio/media/HPRlaunch1.mov" },
+          { type: "video", src: "https://Krash00.github.io/Portfolio/media/HPRlaunch2.mov" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/HPRimg1.jpg" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/HPRimg2.jpg" }
         ]
       },
       {
-        title: "🚀 Launch Sequence",
-        description: "Automated launch protocol system with fail-safe mechanisms. Manages pre-flight checks, countdown procedures, and engine ignition sequences.",
+        title: "☄️ CAD Album",
+        description: "An album of some of my favorite CADs. Enjoy!",
         media: [
-          { type: "image", src: "https://via.placeholder.com/800x400/0c0c1e/ff6b6b?text=🚀+LAUNCH+PROTOCOL" },
-          { type: "video", src: "https://www.w3schools.com/html/mov_bbb.mp4" }
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/1670Project1.png" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/HSacdc.png" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/HSacdcExp.png" },
+          { type: "image", src: "https://Krash00.github.io/Portfolio/media/HSrobotarm.png" }
         ]
       }
     ];
 
     function createMediaElement(media) {
-      if (media.type === "image") {
-        return `<img src="${media.src}" class="w-full h-80 object-cover rounded-xl border border-cyan-400/30">`;
-      } else if (media.type === "video") {
-        return `<video class="w-full h-80 rounded-xl border border-cyan-400/30" controls><source src="${media.src}" type="video/mp4"></video>`;
-      } else if (media.type === "pdf") {
-        return `<iframe src="https://docs.google.com/gview?url=${media.src}&embedded=true" class="w-full h-80 rounded-xl bg-black/20 border border-cyan-400/30"></iframe>`;
-      }
-    }
+  if (media.type === "image") {
+    if (media.type === "image") {
+    return `
+      <img
+        src="${media.src}"
+        alt="Project image"
+        class="
+          w-full         /* full width */
+          h-auto         /* auto height to preserve aspect ratio */
+          max-h-80       /* optional cap at 20rem tall */
+          object-contain /* fit entire image, no cropping */
+          rounded-xl
+          border border-cyan-400/30
+        "
+      >
+    `;
+  }
+       
+  } else if (media.type === "video") {
+    return `<video class="w-full h-80 rounded-xl border border-cyan-400/30" controls>
+              <source src="${media.src}" type="video/mp4">
+            </video>`;
+  } else if (media.type === "youtube") {
+    return `<iframe 
+              src="${media.src}" 
+              class="w-full h-80 rounded-xl border border-cyan-400/30"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>`;
+  } else if (media.type === "pdf") {
+    return `<iframe 
+              src="https://docs.google.com/gview?url=${media.src}&embedded=true" 
+              class="w-full h-80 rounded-xl bg-black/20 border border-cyan-400/30">
+            </iframe>`;
+  }
+}
+
 
     function renderProject(project, index) {
       const mediaElements = project.media.map(m => `
@@ -193,7 +445,7 @@
           <div class="flex items-center mb-3">
             <h2 class="text-2xl font-bold project-title">${project.title}</h2>
             <div class="ml-auto">
-              <span class="px-3 py-1 bg-gradient-to-r from-green-400 to-blue-500 text-black text-xs font-bold rounded-full">ACTIVE</span>
+              <span class="px-3 py-1 bg-gradient-to-r from-green-400 to-blue-500 text-black text-xs font-bold rounded-full">COMPLETE</span>
             </div>
           </div>
           <p class="text-gray-300 mb-6 leading-relaxed">${project.description}</p>
@@ -207,8 +459,8 @@
             ` : ''}
           </div>
           <div class="mt-4 flex justify-between items-center text-sm text-gray-400">
-            <span>📡 Status: Operational</span>
-            <span>🔋 Systems: Online</span>
+            <span>🌎 Project: Operational</span>
+            <span>📡 Status: Liftoff</span>
           </div>
         </div>
       `;
