@@ -318,17 +318,37 @@
   </section>
 
     <!-- Projects -->
-  <section id="projects" class="py-20 relative z-10">
-  <a href="project-dump.html">
-    <div class="card-hover p-8 rounded-2xl glow group cursor-pointer">
-      <div class="text-4xl mb-4">🛰️</div>
-      <h3 class="text-2xl font-bold mb-4 text-blue-400">Click Here to View My Work!</h3>
-      <p class="text-gray-300">
-        A Collection of achievements and lifelong memories I've collected
-      </p>
-      <div class="mt-4 text-sm text-blue-300">Click to explore →</div>
-    </div>
-  </a>
+<section id="projects" class="py-20 relative z-10">
+  <div class="max-w-3xl mx-auto px-6">
+    <a href="project-dump.html">
+      <div class="relative group p-8 rounded-2xl text-center bg-opacity-10 bg-white shadow-xl hover:shadow-2xl transition-all duration-500">
+        <div class="absolute inset-0 rounded-2xl border-4 border-transparent animate-rainbow-border z-0"></div>
+        <div class="relative z-10">
+          <div class="text-4xl mb-4">🚀️</div>
+          <h3 class="text-2xl font-bold mb-4 text-blue-400">Click Here to View My Work!</h3>
+          <p class="text-gray-300">
+            A Collection of achievements and lifelong memories I've collected
+          </p>
+          <div class="mt-4 text-sm text-blue-300">Click to explore →</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+@keyframes rainbow-border {
+  0% { border-color: #f87171; }
+  20% { border-color: #fbbf24; }
+  40% { border-color: #34d399; }
+  60% { border-color: #60a5fa; }
+  80% { border-color: #a78bfa; }
+  100% { border-color: #f87171; }
+}
+.animate-rainbow-border {
+  animation: rainbow-border 5s linear infinite;
+}
+</style>
 
   <!-- Experience Section -->
   <section id="experience" class="py-20 relative z-10">
